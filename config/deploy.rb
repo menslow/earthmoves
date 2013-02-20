@@ -72,8 +72,8 @@ end
 namespace :customs do
     desc "Symlinking files"
     task :make_symlink, :roles => :app do
-        run "ln -nfs #{shared_path}/uploads #{release_path}/application/wp-content/uploads"
-        run "ln -nfs #{shared_path}/blogs.dir #{release_path}/application/wp-content/blogs.dir"
+        run "ln -nfs #{shared_path}/uploads #{release_path}/wp-content/uploads"
+        run "ln -nfs #{shared_path}/blogs.dir #{release_path}/wp-content/blogs.dir"
     end
 end
 

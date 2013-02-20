@@ -37,6 +37,8 @@ if ( file_exists( dirname( __FILE__ ) . '/../env_local') )
 	define('MC_LIST_ID', ''); // MailChimp List ID
 	define('EMAIL_CONTACT', 'michael.enslow@gmail.com'); 
 	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
+	// multisite
+	define('DOMAIN_CURRENT_SITE', 'em.mistermachinework.com');
 
 }
 elseif ( file_exists( dirname( __FILE__ ) . '/../../shared/env_test' ) ) 
@@ -59,6 +61,8 @@ elseif ( file_exists( dirname( __FILE__ ) . '/../../shared/env_test' ) )
 	define('MC_LIST_ID', ''); // MailChimp List ID
 	define('EMAIL_CONTACT', 'michael.enslow@gmail.com'); 
 	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
+	// multisite
+	define('DOMAIN_CURRENT_SITE', 'em.mistermachineshop.com');
 } 
 else 
 {
@@ -78,6 +82,8 @@ else
 	define('MC_LIST_ID', ''); // MailChimp List ID
 	define('EMAIL_CONTACT', ''); 
 	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
+	// multisite
+	define('DOMAIN_CURRENT_SITE', 'example.com');
 }
 
 
@@ -124,7 +130,6 @@ define('WPLANG', '');
 define('WP_ALLOW_MULTISITE', true);
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', 'em.mistermachinework.com');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
