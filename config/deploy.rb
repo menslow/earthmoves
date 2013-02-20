@@ -75,20 +75,9 @@ namespace :customs do
         run "ln -nfs #{shared_path}/uploads #{release_path}/application/wp-content/uploads"
         run "ln -nfs #{shared_path}/blogs.dir #{release_path}/application/wp-content/blogs.dir"
     end
-    desc "Set development flag"
-    task :set_environment, :roles => :app do
-        if env === "dev" then
-            run "touch #{release_path}/env_dev"
-        end
-        if env === "stage" then
-            run "touch #{release_path}/env_stage"
-        end
-    end
-
 end
 
-
-#after "deploy:finalize_update", "customs:make_symlink"
+after "deploy:finalize_update", "customs:make_symlink"
 #after "deploy:finalize_update", "customs:set_environment"
 #after "deploy:finalize_update", "themes:update_config"
 after "deploy", "deploy:cleanup"
