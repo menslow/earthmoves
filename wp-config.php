@@ -14,24 +14,72 @@
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'earthmoves');
+/*
+ * Environment specific configuration:
+ *
+ */
+if ( file_exists( dirname( __FILE__ ) . '/../env_local') )
+{
+	// Local Environment
+	define('WP_ENV', 'local');
+	define('WP_DEBUG', true);
+	define('DB_NAME', 'earthmoves');
+	define('DB_USER', 'erthmweb');
+	define('DB_PASSWORD', 'Y3YqTzG1eKsHDc');
+	define('DB_HOST', '127.0.0.1');
+	define('DB_CHARSET', 'utf8');
+	define('DB_COLLATE', '');
+	define('DISQUS_DEVELOPER', 1); // Disqus (commenting) developer settings - set to 1 for dev and test environments
+	define('GOOGLE_ID', 'UA-XXXXXXXX-X'); // Google Analytics ID
+	define('FB_APP_ID', ''); // Facebook App ID
+	define('FB_APP_SECRET', ''); // Facebook App Secret
+	define('MC_API', ''); // MailChimp API Key
+	define('MC_LIST_ID', ''); // MailChimp List ID
+	define('EMAIL_CONTACT', 'michael.enslow@gmail.com'); 
+	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
 
-/** MySQL database username */
-define('DB_USER', 'erthmweb');
+}
+elseif ( file_exists( dirname( __FILE__ ) . '/../../shared/env_test' ) ) 
+{
+	// Test Environment
+	define('WP_ENV', 'test');
+	define('WP_DEBUG', false);
+	define('DB_NAME', 'earthmoves');
+	define('DB_USER', 'erthmweb');
+	define('DB_PASSWORD', 'oDxdp4NaEPU9bK');
+	define('DB_HOST', 'localhost');
+	define('DB_CHARSET', 'utf8');
+	define('DB_COLLATE', '');
+	define('DISQUS_DEVELOPER', 1);
+	define('GOOGLE_ID', 'UA-XXXXXXXX-X'); // Google Analytics ID
+	define('FB_APP_ID', ''); // Facebook App ID
+	define('FB_APP_SECRET', ''); // Facebook App Secret
+	define('FB_APP_SECRET', ''); // Facebook App Secret
+	define('MC_API', '-us4'); // MailChimp API Key
+	define('MC_LIST_ID', ''); // MailChimp List ID
+	define('EMAIL_CONTACT', 'michael.enslow@gmail.com'); 
+	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
+} 
+else 
+{
+	define('WP_ENV', 'production');
+	define('WP_DEBUG', false);
+	define('DB_NAME', '');
+	define('DB_USER', '');
+	define('DB_PASSWORD', '');
+	define('DB_HOST', 'localhost');
+	define('DB_CHARSET', 'utf8');
+	define('DB_COLLATE', '');
+	define('DISQUS_DEVELOPER', 0);
+	define('GOOGLE_ID', ''); // Google Analytics ID
+	define('FB_APP_ID', ''); // Facebook App ID
+	define('FB_APP_SECRET', ''); // Facebook App Secret
+	define('MC_API', ''); // MailChimp API Key
+	define('MC_LIST_ID', ''); // MailChimp List ID
+	define('EMAIL_CONTACT', ''); 
+	define('TYPEKIT_ID', ''); // Typekit ID for JavaScript 
+}
 
-/** MySQL database password */
-define('DB_PASSWORD', 'Y3YqTzG1eKsHDc');
-
-/** MySQL hostname */
-define('DB_HOST', '127.0.0.1');
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -71,14 +119,6 @@ $table_prefix  = 'wpem_';
  */
 define('WPLANG', '');
 
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-define('WP_DEBUG', false);
 
 /* Multisite */
 define('WP_ALLOW_MULTISITE', true);
